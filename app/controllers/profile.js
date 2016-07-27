@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  name: 'Emberita',
-  // color: 'green',
+  name: Ember.computed.readOnly('model.name'),
+  color: Ember.computed.readOnly('model.favoriteColor'),
   colorStyle: Ember.computed('color', function() {
       var color = CSS.escape(this.get('color'));
       return Ember.String.htmlSafe("color: " + color);
@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
         console.log(this.get('model.currentState.stateName'));
       });
     },
-  someInformation: Ember.computed('model.{name,favoriteColor}', function(){
+  someInformation: Ember.computed('name','color', function(){
       return 'Your name is ' + this.get('model.name') + ' and your favorite color is ' + this.get('model.favoriteColor');
     }),
 });
