@@ -1,0 +1,10 @@
+<!-- templates/profile/friends.hbs -->
+<div class="squad">
+  <h3>Here is your squad:</h3>
+</div>
+
+<ul>
+  {{#each model as |friend|}}
+    <li>{{friend.name}} likes {{friend.favoriteColor}}.</li>
+  {{/each}}
+</ul>  
